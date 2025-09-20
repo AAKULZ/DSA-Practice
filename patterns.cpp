@@ -122,7 +122,7 @@ void pattern11(int n){
 }
 
 void pattern12(int n){
-    for(int i=1;i<n;i++){
+    for(int i=1;i<=n;i++){
         for(int j=1;j<=i;j++){
             cout << j;
         }
@@ -140,6 +140,7 @@ void pattern13(int n){
     for(int i=1;i<=n;i++){
         for(int j=1;j<=i;j++){
             //cout << ((i * (i - 1)) / 2 + j) << " ";//TLDR
+            //Triangular Number Formula
             cout << (((i-1)*i)/2)+j << " ";
         }
         cout << endl;
@@ -176,13 +177,13 @@ void pattern16(int n){
 
 void pattern17(int n){
     for(int i=0;i<n;i++){
-        for(int j=0;j<n-i;j++){
+        for(int j=0;j<n-i-1;j++){
             cout << " ";
         }
         for(int j=0;j<2*i+1;j++){
             cout << char('A'+ i-abs(i-j));
         }
-        for(int j=0;j<n-i;j++){
+        for(int j=0;j<n-i-1;j++){
             cout << " ";
         }
         cout << endl;
@@ -205,7 +206,7 @@ void pattern19(int n){
         for(int j=0;j<=abs(n-i);j++){
             cout << "*";
         }
-        for(int j=0;j<2*(n-abs(n-i));j++){
+        for(int j=0;j<=2*(n-abs(n-i));j++){
             cout << " ";
         }
         for(int j=0;j<=abs(n-i);j++){
@@ -277,9 +278,9 @@ void pattern21(int n){
 }
 
 void pattern22(int n){
-    for(int i=0;i<n;i++){
-        for(int j=0;j<n;j++){
-            cout << 1 + max(abs(n/2-i),abs(n/2-j)) << " ";
+    for(int i=0;i<2*n-1;i++){
+        for(int j=0;j<2*n-1;j++){
+            cout <<  max(abs(n-i-1),abs(n-j-1)) << " ";
         }
         cout << endl;
     }
@@ -321,9 +322,19 @@ void pattern22(int n){
 }
 
 void pattern23(int n){
-    for(int i=0;i<n;i++){
-        for(int j=0;j<n;j++){
-            cout << 1 + min(abs(n/2-i),abs(n/2-j)) << " ";
+    for(int i=0;i<2*n-1;i++){
+        for(int j=0;j<2*n-1;j++){
+            cout << min(abs(n-i-1),abs(n-j-1)) << " ";
+        }
+        cout << endl;
+    }
+}
+
+void pattern24(int n){
+    for(int i=0;i<2*n-1;i++){
+        for(int j=0;j<2*n-1;j++){
+
+            cout << n - min(min(i,j),min(2*n-2-i,2*n-2-j)) << " ";
         }
         cout << endl;
     }
@@ -427,6 +438,10 @@ int main(){
     cout << endl << "Pattern 23:"<< endl;
     cout << "------------------------------------------------" << endl;
     pattern23(n);
+    cout << endl << "------------------------------------------------";
+    cout << endl << "Pattern 24:"<< endl;
+    cout << "------------------------------------------------" << endl;
+    pattern24(n);
     cout << endl << "------------------------------------------------";
     cout << endl << endl;
 
