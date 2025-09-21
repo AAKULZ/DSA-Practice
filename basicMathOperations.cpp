@@ -120,6 +120,33 @@ void findGCD(int num1,int num2){
     cout << endl <<"----------------------------------------------------------"<<endl;
 }
 
+//using Euclidean Algorihtm
+
+void EuclideanGCDAdd(int num1, int num2){
+    cout << "GCD of num "<< num1 << " and " <<num2 << " is ";
+    while(num1 != num2){
+        int bigger = max(num1, num2);
+        int smaller = min(num1, num2);
+        num1 = bigger - smaller;
+        num2 = smaller;
+    }
+    cout << num1;//or num2 (any, beacuse same)
+    cout << endl <<"----------------------------------------------------------"<<endl;
+}
+
+void EuclideanGCDMod(int num1, int num2){
+    cout << "GCD of num " << num1 << " and " << num2 << " is ";
+    while(num2 != 0){
+        int temp = num1 % num2;
+        num1 = num2;
+        num2 = temp;
+    }
+    cout << num1;
+    cout << endl << "----------------------------------------------------------" << endl;
+}
+
+
+
 void findOptimizedGCD( int num1, int num2){
     cout << "GCD of num "<< num1 << " and " <<num2 << " is ";
     while(num1>0 && num2>0){
@@ -146,6 +173,8 @@ int main(){
     checkPrime(num1);
     checkPrimeoptimized(num1);
     findGCD(num1,num2);
+    EuclideanGCDAdd(num1,num2);
+    EuclideanGCDMod(num1,num2);
     findOptimizedGCD(num1,num2);
     return 0;
 }
