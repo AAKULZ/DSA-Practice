@@ -1,0 +1,50 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+void substring(vector<int> garr, vector<int> arr,int i){
+    if(i>=garr.size()){
+        cout << "[" ;
+        for(i=0;i<arr.size();i++){
+            cout << arr[i];
+            if(i<arr.size()-1)cout << ", ";
+        }
+        cout << "]\n" ;
+        return;
+    }
+    arr.push_back(garr[i]);
+    substring(garr,arr,i+1);
+    arr.pop_back();
+    substring(garr,arr,i+1);
+
+}
+
+int main(){
+
+int temp;
+int i=50;
+vector<int> arr;
+while(i-->0)cout << "=";
+cout << endl;
+cout << "Contigous/ Non Contigous but ordered Substring " << endl;
+i=50;
+while(i-->0)cout << "=";
+cout << endl;
+cout << "Enter number of elements of arr: ";
+cin >> temp;
+vector<int> garr(temp,0);
+cout << "Enter Elemts of Array: " ;
+for(int i=0;i<garr.size();i++){
+    cin >> garr[i];
+}
+cout << "Contigous Substrings of array: ";
+cout << "[";
+for(int i=0;i<garr.size();i++){
+    cout << garr[i];
+    if(i<garr.size()-1)cout << ", ";
+}
+cout << "] are: \n" ;
+substring(garr,arr,0);
+i=50;
+while(i-->0)cout << "=";
+return 0;
+}
